@@ -77,11 +77,10 @@ async function initUserAdmin() {
   try {
     await database.user.create({
       data: {
-        email: "admin@gmail.com",
-        passwordHash:
-          "$2a$05$9OWH4DaRbu8J1xvQg1K.T.EGYrsPk.eXAuBrkCzN1XTIrFG7Mu2ze",
-        username: "admin",
-        phone: "0123456789",
+        email: process.env.USER_ADMIN_EMAIL as string,
+        passwordHash: process.env.USER_ADMIN_PASSWORD as string,
+        username: process.env.USER_ADMIN_USERNAME as string,
+        phone: process.env.USER_ADMIN_PHONE as string,
         role: "ADMIN",
       },
     });
